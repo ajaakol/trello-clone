@@ -1,4 +1,4 @@
-# watch-us-build-trello
+# trello clone
 
 ## Project setup
 ```
