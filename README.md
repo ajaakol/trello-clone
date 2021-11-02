@@ -1,4 +1,4 @@
-# trello clone
+# trello-clone
 
 ## Project setup
 ```
