@@ -15,10 +15,11 @@
         v-for="(task, $taskIndex) of column.tasks"
         :key="$taskIndex"
         :task="task"
-        :taskIndex="taskIndex"
+        :taskIndex="$taskIndex"
+        :column="column"
         :columnIndex="columnIndex"
+        :board="board"
       />
-
       <input
         type="text"
         class="block p-2 w-full bg-transparent"
@@ -28,12 +29,10 @@
     </div>
   </div>
 </template>
-
 <script>
 import ColumnTask from './ColumnTask'
 export default {
   components: { ColumnTask },
-
   props: {
     column: {
       type: Object,
@@ -52,12 +51,7 @@ export default {
     moveTaskOrColumn(e, toTasks, toColumnIndex, toTaskIndex) {
       const type = e.dataTransfer.getData('type')
       if (type === 'task') {
-        this.moveTask(
-          e,
-          toTasks,
-          // check if its undefined and if it is not undefined and drop it at the very end of the column
-          toTaskIndex !== undefined ? toTaskIndex : toTasks.length
-        )
+        this.moveTask(e, toTasks, toTaskIndex !== undefined ? toTaskIndex : toTasks.length)
       } else {
         this.moveColumn(e, toColumnIndex)
       }
@@ -73,10 +67,8 @@ export default {
         toTaskIndex
       })
     },
-
     moveColumn(e, toColumnIndex) {
       const fromColumnIndex = e.dataTransfer.getData('from-column-index')
-
       this.$store.commit('MOVE_COLUMN', {
         fromColumnIndex,
         toColumnIndex
@@ -88,7 +80,6 @@ export default {
       e.dataTransfer.setData('from-column-index', fromColumnIndex)
       e.dataTransfer.setData('type', 'column')
     },
-
     createTask(e, tasks) {
       this.$store.commit('CREATE_TASK', {
         tasks,
@@ -99,7 +90,6 @@ export default {
   }
 }
 </script>
-
 <style lang="css">
 .column {
   @apply bg-grey-light p-2 mr-4 text-left shadow rounded;
