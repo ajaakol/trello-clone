@@ -1,6 +1,6 @@
 <template>
   <button type="button" class="button" :class="typeClasses">
-    <slot/>
+    <slot />
   </button>
 </template>
 
@@ -12,7 +12,7 @@ export default {
     }
   },
   computed: {
-    typeClasses () {
+    typeClasses() {
       switch (this.type) {
         case 'danger':
           return 'bg-red'
