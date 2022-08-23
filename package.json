@@ -17,7 +17,7 @@
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^1.1.0",
-    "@ky-is/vue-cli-plugin-tailwind": "^1.6.0",
+    "@ky-is/vue-cli-plugin-tailwind": "^2.0.0",
     "@vue/cli-plugin-babel": "^3.5.0",
     "@vue/cli-plugin-eslint": "^3.5.0",
     "@vue/cli-service": "^3.5.0",
@@ -26,7 +26,7 @@
     "eslint": "^5.8.0",
     "eslint-plugin-vue": "^5.0.0",
     "postcss-preset-env": "^6.3.0",
-    "stylus": "^0.54.5",
+    "stylus": "^0.59.0",
     "stylus-loader": "^3.0.2",
     "tailwindcss": "^0.7.0",
     "vue-cli-plugin-fontawesome": "^0.2.0",
